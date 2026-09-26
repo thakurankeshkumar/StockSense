@@ -65,9 +65,14 @@ export function middleware(request) {
       "callbackUrl",
       `${pathname}${request.nextUrl.search}`
     );
+  // if (!token) {
+  //   const loginUrl = new URL("/login", request.url);
 
-    return NextResponse.redirect(loginUrl);
-  }
+  //   // Remember where the user wanted to go.
+  //   loginUrl.searchParams.set("callbackUrl", `${pathname}${request.nextUrl.search}`);
+
+  //   return NextResponse.redirect(loginUrl);
+  // }
 
   return NextResponse.next();
 }
