@@ -42,7 +42,7 @@ export default function DashboardPage() {
       <div>
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-slate-900">
-            Good afternoon, Ankesh 👋
+            Good afternoon, Ankesh
           </h2>
 
           <p className="mt-1 text-sm text-slate-500">
@@ -74,33 +74,33 @@ export default function DashboardPage() {
                 title="Total Products"
                 value={dashboard.totalProducts}
                 description="Products in catalog"
-                icon="□"
+                icon="01"
               />
 
               <StatCard
                 title="Total Stock"
                 value={dashboard.totalQuantity}
                 description="Across all locations"
-                icon="▦"
+                icon="02"
               />
 
               <StatCard
                 title="Low Stock"
                 value={dashboard.lowStockItems}
                 description="Below reorder level"
-                icon="!"
+                icon="03"
               />
 
               <StatCard
                 title="Out of Stock"
                 value={dashboard.outOfStockItems}
                 description="Currently unavailable"
-                icon="×"
+                icon="04"
               />
             </div>
 
             <div className="mt-6 grid gap-6 lg:grid-cols-2">
-              <div className="rounded-xl border border-slate-200 bg-white p-6">
+              <div className="border border-slate-200 bg-white p-6">
                 <h3 className="text-base font-semibold text-slate-900">
                   Pending Operations
                 </h3>
@@ -123,7 +123,7 @@ export default function DashboardPage() {
                 </div>
               </div>
 
-              <div className="rounded-xl border border-slate-200 bg-white p-6">
+              <div className="border border-slate-200 bg-white p-6">
                 <h3 className="text-base font-semibold text-slate-900">
                   Inventory Overview
                 </h3>
@@ -175,7 +175,7 @@ function OperationRow({ label, value }) {
         {label}
       </span>
 
-      <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-semibold text-slate-900">
+      <span className="font-mono text-sm font-semibold text-slate-900">
         {value}
       </span>
     </div>

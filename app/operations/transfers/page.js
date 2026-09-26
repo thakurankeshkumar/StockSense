@@ -34,19 +34,19 @@ export default function TransfersPage() {
 
     useEffect(() => {
         async function fetchInitialData() {
-            const [p, l, r] = await Promise.all([
+            const [p, l, t] = await Promise.all([
                 fetch("/api/products"),
                 fetch("/api/locations"),
-                fetch("/api/receipts"),
+                fetch("/api/transfers"),
             ]);
 
             const productsData = await p.json();
             const locationsData = await l.json();
-            const receiptsData = await r.json();
+            const transfersData = await t.json();
 
             setProducts(productsData.data || []);
             setLocations(locationsData.data || []);
-            setReceipts(receiptsData.data || []);
+            setTransfers(transfersData.data || []);
         }
 
         fetchInitialData();

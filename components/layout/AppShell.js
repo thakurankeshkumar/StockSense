@@ -3,13 +3,13 @@ import Header from "./Header";
 
 export default function AppShell({ children }) {
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-[#f4f6f8]">
       <Sidebar />
 
-      <div className="lg:pl-64">
+      <div className="lg:pl-60">
         <Header />
 
-        <main className="p-6">
+        <main className="mx-auto max-w-[1440px] p-4 sm:p-6 lg:p-8">
           {children}
         </main>
       </div>

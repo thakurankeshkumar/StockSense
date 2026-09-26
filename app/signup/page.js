@@ -56,11 +56,12 @@ export default function SignUpPage() {
     }
 
     return (
-        <main className="flex min-h-screen items-center justify-center bg-slate-50 px-6 py-10">
+        <main className="flex min-h-screen items-center justify-center bg-[#f4f6f8] px-6 py-10">
             <div className="w-full max-w-md">
                 <div className="mb-8 text-center">
-                    <Link href="/" className="text-2xl font-bold text-slate-900">
-                        Stock<span className="text-blue-600">Sense</span>
+                    <Link href="/" className="inline-flex items-center gap-3 text-2xl font-bold text-slate-900">
+                        <span className="flex h-8 w-8 items-center justify-center rounded-md bg-[#0f766e] text-sm text-white">S</span>
+                        Stock<span className="text-[#0f766e]">Sense</span>
                     </Link>
 
                     <h1 className="mt-8 text-2xl font-bold text-slate-900">
@@ -74,7 +75,7 @@ export default function SignUpPage() {
 
                 <form
                     onSubmit={handleSubmit}
-                    className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
+                    className="border border-[#dce2e7] bg-white p-7 shadow-[0_16px_40px_rgba(22,32,42,0.06)]"
                 >
                     <div className="space-y-4">
                         <label className="block">
@@ -89,7 +90,7 @@ export default function SignUpPage() {
                                 value={form.name}
                                 onChange={handleChange}
                                 placeholder="Enter your name"
-                                className="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm outline-none focus:border-blue-500"
+                                className="w-full rounded-md border border-slate-200 px-3 py-2.5 text-sm outline-none focus:border-[#0f766e] focus:ring-2 focus:ring-[#e5f3f0]"
                             />
                         </label>
 
@@ -105,7 +106,7 @@ export default function SignUpPage() {
                                 value={form.email}
                                 onChange={handleChange}
                                 placeholder="you@example.com"
-                                className="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm outline-none focus:border-blue-500"
+                                className="w-full rounded-md border border-slate-200 px-3 py-2.5 text-sm outline-none focus:border-[#0f766e] focus:ring-2 focus:ring-[#e5f3f0]"
                             />
                         </label>
 
@@ -122,7 +123,7 @@ export default function SignUpPage() {
                                 value={form.password}
                                 onChange={handleChange}
                                 placeholder="Create a password"
-                                className="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm outline-none focus:border-blue-500"
+                                className="w-full rounded-md border border-slate-200 px-3 py-2.5 text-sm outline-none focus:border-[#0f766e] focus:ring-2 focus:ring-[#e5f3f0]"
                             />
                         </label>
 
@@ -138,14 +139,14 @@ export default function SignUpPage() {
                                 value={form.confirmPassword}
                                 onChange={handleChange}
                                 placeholder="Confirm your password"
-                                className="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm outline-none focus:border-blue-500"
+                                className="w-full rounded-md border border-slate-200 px-3 py-2.5 text-sm outline-none focus:border-[#0f766e] focus:ring-2 focus:ring-[#e5f3f0]"
                             />
                         </label>
                     </div>
 
                     <button
                         type="submit"
-                        className="mt-6 w-full rounded-lg bg-blue-600 px-4 py-3 text-sm font-semibold text-white hover:bg-blue-700"
+                        className="mt-6 w-full rounded-md bg-[#0f766e] px-4 py-3 text-sm font-semibold text-white hover:bg-[#115e59]"
                     >
                         Create Account
                     </button>
@@ -154,7 +155,7 @@ export default function SignUpPage() {
                         Already have an account?{" "}
                         <Link
                             href="/signin"
-                            className="font-semibold text-blue-600 hover:underline"
+                            className="font-semibold text-[#0f766e] hover:underline"
                         >
                             Sign in
                         </Link>

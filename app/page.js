@@ -2,25 +2,25 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-50">
-      {/* Navbar */}
-      <nav className="border-b border-slate-200 bg-white">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <Link href="/" className="text-xl font-bold text-slate-900">
-            Stock<span className="text-blue-600">Sense</span>
+    <main className="min-h-screen bg-[#f4f6f8]">
+      <nav className="border-b border-[#dce2e7] bg-white">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+          <Link href="/" className="flex items-center gap-3 text-xl font-bold text-[#16202a]">
+            <span className="flex h-8 w-8 items-center justify-center rounded-md bg-[#0f766e] text-sm text-white">S</span>
+            Stock<span className="text-[#0f766e]">Sense</span>
           </Link>
 
           <div className="flex items-center gap-3">
             <Link
               href="/signin"
-              className="rounded-lg px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
+              className="rounded-md px-4 py-2 text-sm font-medium text-[#3d4a55] hover:bg-[#f4f6f8]"
             >
               Sign In
             </Link>
 
             <Link
               href="/signup"
-              className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800"
+              className="rounded-md bg-[#16202a] px-4 py-2 text-sm font-medium text-white hover:bg-[#263542]"
             >
               Get Started
             </Link>
@@ -28,89 +28,62 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero */}
       <section className="mx-auto max-w-7xl px-6 py-20 sm:py-28">
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="mb-6 inline-flex rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-700">
-            Smart Inventory Management
-          </div>
-
-          <h1 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-6xl">
-            Manage your inventory
-            <span className="block text-blue-600">
-              with confidence.
-            </span>
+        <div className="grid items-end gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+          <div>
+            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-[#0f766e]">Inventory operations</p>
+            <h1 className="max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#16202a] sm:text-6xl">
+              Know what is in stock, where it is, and what needs attention.
           </h1>
 
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-            StockSense helps businesses manage products, stock levels,
-            receipts, deliveries, transfers and inventory adjustments
-            from one centralized platform.
-          </p>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-[#66727d]">
+              StockSense keeps products, stock levels, receipts, deliveries, transfers, and adjustments in one operational workspace.
+            </p>
 
-          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/signup"
-              className="rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700"
+              className="rounded-md bg-[#0f766e] px-6 py-3 text-sm font-semibold text-white hover:bg-[#115e59]"
             >
               Get Started
             </Link>
 
             <Link
               href="/signin"
-              className="rounded-lg border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              className="rounded-md border border-[#cbd4da] bg-white px-6 py-3 text-sm font-semibold text-[#3d4a55] hover:bg-[#f4f6f8]"
             >
               Sign In
             </Link>
           </div>
+          </div>
+
+          <div className="border-l-2 border-[#0f766e] bg-white p-7 shadow-[0_16px_40px_rgba(22,32,42,0.06)]">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#66727d]">A clear operating picture</p>
+            <div className="mt-8 space-y-5">
+              <div className="flex items-start gap-4 border-b border-[#edf0f2] pb-5">
+                <span className="font-mono text-xs font-semibold text-[#0f766e]">01</span>
+                <p className="text-sm leading-6 text-[#3d4a55]">Keep a reliable product catalog with SKUs, units, categories, and reorder levels.</p>
+              </div>
+              <div className="flex items-start gap-4 border-b border-[#edf0f2] pb-5">
+                <span className="font-mono text-xs font-semibold text-[#0f766e]">02</span>
+                <p className="text-sm leading-6 text-[#3d4a55]">Record every receipt, delivery, transfer, and adjustment as it happens.</p>
+              </div>
+              <div className="flex items-start gap-4">
+                <span className="font-mono text-xs font-semibold text-[#0f766e]">03</span>
+                <p className="text-sm leading-6 text-[#3d4a55]">See stock by location and spot low or unavailable items early.</p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Features */}
-        <div className="mt-20 grid gap-5 md:grid-cols-3">
-          <FeatureCard
-            icon="📦"
-            title="Product Management"
-            description="Manage products, SKUs, categories, units and reorder levels."
-          />
-
-          <FeatureCard
-            icon="🔄"
-            title="Stock Operations"
-            description="Handle receipts, deliveries, internal transfers and adjustments."
-          />
-
-          <FeatureCard
-            icon="📊"
-            title="Stock Visibility"
-            description="Track inventory across locations with a centralized stock ledger."
-          />
-        </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-slate-200 bg-white">
-        <div className="mx-auto max-w-7xl px-6 py-6 text-center text-sm text-slate-500">
+      <footer className="border-t border-[#dce2e7] bg-white">
+        <div className="mx-auto max-w-7xl px-6 py-6 text-sm text-[#66727d]">
           © {new Date().getFullYear()} StockSense. Inventory Management System.
         </div>
       </footer>
     </main>
-  );
-}
-
-function FeatureCard({ icon, title, description }) {
-  return (
-    <div className="rounded-xl border border-slate-200 bg-white p-6">
-      <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-slate-100 text-xl">
-        {icon}
-      </div>
-
-      <h3 className="text-lg font-semibold text-slate-900">
-        {title}
-      </h3>
-
-      <p className="mt-2 text-sm leading-6 text-slate-500">
-        {description}
-      </p>
-    </div>
   );
 }

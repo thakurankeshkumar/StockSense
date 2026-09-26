@@ -1,11 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function SignInPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const router = useRouter();
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -29,8 +31,7 @@ export default function SignInPage() {
                 return;
             }
 
-            // window.location.href = "/dashboard";
-            Response.redirect("/dashboard")
+            router.push("/dashboard");
         } catch (error) {
             console.error("Login error:", error);
             alert("Something went wrong. Please try again.");
