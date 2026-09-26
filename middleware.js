@@ -59,7 +59,7 @@ export function middleware(request) {
     const loginUrl = new URL("/login", request.url);
 
     // Remember where the user wanted to go.
-    loginUrl.searchParams.set("callbackUrl", pathname);
+    loginUrl.searchParams.set("callbackUrl", `${pathname}${request.nextUrl.search}`);
 
     return NextResponse.redirect(loginUrl);
   }
