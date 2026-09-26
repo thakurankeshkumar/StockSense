@@ -30,7 +30,7 @@ export default function MovementsPage() {
 
       <div className="overflow-hidden rounded-xl border border-slate-200 bg-white">
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[800px]">
+          <table className="w-full min-w-200">
             <thead className="bg-slate-50">
               <tr>
                 {["Product", "Type", "Quantity", "From", "To", "Date"].map(

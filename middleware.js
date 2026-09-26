@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 const PUBLIC_ROUTES = [
   "/",
-  "/login",
+  "/signin",
   "/signup",
   "/forgot-password",
   "/reset-password",
@@ -11,14 +11,13 @@ const PUBLIC_ROUTES = [
 const PROTECTED_PREFIXES = [
   "/dashboard",
   "/products",
-  "/receipts",
-  "/deliveries",
-  "/transfers",
-  "/adjustments",
-  "/stock",
+  "/operations",
+  "/movements",
+  "/settings",
+  "/profile",
 ];
 
-const AUTH_COOKIE_NAME = "accessToken";
+const AUTH_COOKIE_NAME = "auth_token";
 
 function isPublicRoute(pathname) {
   return PUBLIC_ROUTES.includes(pathname);
@@ -27,24 +26,28 @@ function isPublicRoute(pathname) {
 function isProtectedRoute(pathname) {
   return PROTECTED_PREFIXES.some(
     (route) =>
-      pathname === route ||
-      pathname.startsWith(`${route}/`)
+      pathname === route || pathname.startsWith(`${route}/`)
   );
 }
 
 export function middleware(request) {
   const { pathname } = request.nextUrl;
 
-  // Ignore Next.js internals and static assets.
+  // Allow Next.js internals and static files.
   if (
     pathname.startsWith("/_next") ||
-    pathname.startsWith("/api/auth") ||
-    (pathname.includes(".") && !isProtectedRoute(pathname))
+    pathname.startsWith("/favicon") ||
+    pathname.includes(".")
   ) {
     return NextResponse.next();
   }
 
-  // Public routes do not require authentication.
+  // Let API routes handle their own authentication/authorization.
+  if (pathname.startsWith("/api/")) {
+    return NextResponse.next();
+  }
+
+  // Public pages don't require authentication.
   if (isPublicRoute(pathname)) {
     return NextResponse.next();
   }
@@ -54,25 +57,20 @@ export function middleware(request) {
     return NextResponse.next();
   }
 
+  // Check authentication cookie.
   const token = request.cookies.get(AUTH_COOKIE_NAME)?.value;
 
-  // User is not authenticated.
   if (!token) {
-    const loginUrl = new URL("/login", request.url);
+    const loginUrl = new URL("/signin", request.url);
 
-    // Remember where the user wanted to go.
+    // Remember the page the user originally requested.
     loginUrl.searchParams.set(
       "callbackUrl",
       `${pathname}${request.nextUrl.search}`
     );
-  // if (!token) {
-  //   const loginUrl = new URL("/login", request.url);
 
-  //   // Remember where the user wanted to go.
-  //   loginUrl.searchParams.set("callbackUrl", `${pathname}${request.nextUrl.search}`);
-
-  //   return NextResponse.redirect(loginUrl);
-  // }
+    return NextResponse.redirect(loginUrl);
+  }
 
   return NextResponse.next();
 }

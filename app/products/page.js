@@ -122,7 +122,7 @@ export default function ProductsPage() {
         {/* Table */}
         <div className="mt-6 overflow-hidden rounded-xl border border-slate-200 bg-white">
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[800px]">
+            <table className="w-full min-w-200">
               <thead className="border-b border-slate-200 bg-slate-50">
                 <tr>
                   <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">
