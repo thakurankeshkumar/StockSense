@@ -37,7 +37,7 @@ export function middleware(request) {
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api/auth") ||
-    pathname.includes(".")
+    pathname.includes(".") && !isProtectedRoute(pathname)
   ) {
     return NextResponse.next();
   }
