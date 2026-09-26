@@ -55,14 +55,14 @@ export function middleware(request) {
   // Check for the authentication cookie.
   const token = request.cookies.get(AUTH_COOKIE_NAME)?.value;
 
-  if (!token) {
-    const loginUrl = new URL("/login", request.url);
+  // if (!token) {
+  //   const loginUrl = new URL("/login", request.url);
 
-    // Remember where the user wanted to go.
-    loginUrl.searchParams.set("callbackUrl", `${pathname}${request.nextUrl.search}`);
+  //   // Remember where the user wanted to go.
+  //   loginUrl.searchParams.set("callbackUrl", `${pathname}${request.nextUrl.search}`);
 
-    return NextResponse.redirect(loginUrl);
-  }
+  //   return NextResponse.redirect(loginUrl);
+  // }
 
   return NextResponse.next();
 }
